@@ -1,0 +1,21 @@
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+//@include icon-font('SenchaConIcons', inline-font-files(
+  //'senchacon-icons/senchacon-icons.woff', woff,
+  //'senchacon-icons/senchacon-icons.ttf', truetype,
+  //'headphones.svg', svg
+//));
+
+
+// Custom code goes here..
+
+// Examples of using the icon mixin:
+// @include icon('user');
+//@include icon('headphones');
+//@include icon("headphones"  , "\e600", "SenchaConIcons"); 
+//@include icon("camera"  , "\e601", "SenchaConIcons"); 
+//@include icon("camera2"  , "\e602", "SenchaConIcons"); 
