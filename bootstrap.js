@@ -5,7 +5,6 @@
  * metadata-driven class system features 
  */
 Ext.Loader.addClassPathMappings({
-  "DemoStory": "app",
   "Ext": "touch/src",
   "Ext.device.Purchases.Product": "touch/src/device/purchases/Sencha.js",
   "Ext.device.filesystem.DirectoryEntry": "touch/src/device/filesystem/HTML5.js",
@@ -21,7 +20,6 @@ Ext.Loader.addClassPathMappings({
   "testStoryApp": "app"
 });
 Ext.ClassManager.addNameAlternateMappings({
-  "DemoStory.util.localStorage": [],
   "Ext.AbstractComponent": [],
   "Ext.AbstractManager": [],
   "Ext.AbstractPlugin": [],
@@ -748,6 +746,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "testStoryApp.controller.controller": [],
   "testStoryApp.model.captureModel": [],
   "testStoryApp.store.captureStore": [],
+  "testStoryApp.util.localStorage": [],
   "testStoryApp.view.Main": [],
   "testStoryApp.view.audioView": [],
   "testStoryApp.view.cameraView": [],
@@ -756,7 +755,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "testStoryApp.view.videoView": []
 });
 Ext.ClassManager.addNameAliasMappings({
-  "DemoStory.util.localStorage": [],
   "Ext.AbstractComponent": [],
   "Ext.AbstractManager": [],
   "Ext.AbstractPlugin": [],
@@ -1701,6 +1699,7 @@ Ext.ClassManager.addNameAliasMappings({
   "testStoryApp.controller.controller": [],
   "testStoryApp.model.captureModel": [],
   "testStoryApp.store.captureStore": [],
+  "testStoryApp.util.localStorage": [],
   "testStoryApp.view.Main": [
     "widget.mainview"
   ],

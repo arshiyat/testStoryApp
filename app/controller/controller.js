@@ -52,7 +52,7 @@ Ext.define('testStoryApp.controller.controller', {
         
         var path;
 
-        //window.localStorage.clear();
+        window.localStorage.clear();
 
         // alert(window.localStorage.length);
         // alert(window.localStorage.key('0'));
@@ -64,42 +64,48 @@ Ext.define('testStoryApp.controller.controller', {
          // alert('now the storage size'+window.localStorage.length);
 
          // alert(window.localStorage.getItem("0"));
+        
+
+
          var capturetype;
 
         for (i = 0; i < window.localStorage.length-1; i++) {
 
             
             path=window.localStorage.getItem(window.localStorage.key(i.toString()));
+            // alert('path'+path);
 
-            alert('original path'+path);
-
-            capturetype=path.substr(0,1);
-
-            if(capturetype =="I")
+            if(path.length>0)
             {
-                capturetype="image";
+
+            // alert('original path'+path);
+
+                capturetype=path.substr(0,1);
+
+                if(capturetype =="I")
+                {
+                    capturetype="image";
+                }
+                else if(capturetype=="V")
+                {
+                    capturetype="video";
+                }
+                else if(capturetype=="N")
+                {
+                    capturetype="note";
+                }
+                else if(capturetype=="A")
+                {
+                    capturetype="audio";
+                }
+
+                path=path.substr(2,path.length-1);
+
+
+                store.add({ title: 'green', type: capturetype, url: path });
             }
-            else if(capturetype=="V")
-            {
-                capturetype="video";
-            }
-            else if(capturetype=="N")
-            {
-                capturetype="note";
-            }
-            else if(capturetype=="A")
-            {
-                capturetype="audio";
-            }
 
-            path=path.substr(2,path.length-1);
-
-
-            store.add({ title: 'green', type: capturetype, url: path });
-
-
-
-            alert('path extracted is the'+path);
+            // alert('path extracted is the'+path);
         }
         
         //  alert('in cmp'+Ext.getCmp('capturelist').getStore().getId());

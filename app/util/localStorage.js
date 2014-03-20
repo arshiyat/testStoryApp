@@ -1,4 +1,4 @@
-Ext.define('DemoStory.util.localStorage', {
+Ext.define('testStoryApp.util.localStorage', {
        singleton : true,
  
         config : {
@@ -6,16 +6,17 @@ Ext.define('DemoStory.util.localStorage', {
             imageUrl: 'http://sureshdotariya.blogspot.com/image.png',
             url : null,
             playing:false,
-            media : null
+            fileCount : 0
         },
  
         setMedia: function(media) {
             this.media=media;
         },
 
-        getMedia:function()
+        getfileCount:function()
         {
-            return this.media;
+            this.fileCount=this.fileCount+1;
+            return this.fileCount;
         },
 
         setFlag:function(flag)

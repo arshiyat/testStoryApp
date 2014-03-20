@@ -16,8 +16,9 @@ Ext.define('testStoryApp.view.noteView', {
     items: [
             {
                 xtype: 'textareafield',
+                id:'note',
                 label: 'Note',
-                maxRows: 4,
+                maxRows: 2,
                 name: 'bio'
                 
             },
@@ -32,7 +33,73 @@ Ext.define('testStoryApp.view.noteView', {
                 text: "Save Note",
                 flex:1,
                 handler: function() {
-                   alert('save the file  and push it to the list as saved');
+
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+
+
+                    function gotFS(fileSystem) {
+                        
+                          fileSystem.root.getFile('readNote.txt', {create: true, exclusive: false}, gotFileEntry, fail);
+
+                          var store=Ext.getCmp('capturelist').getStore();
+
+                            store.add({ title: 'white', type: 'Note', url: 'path' });
+
+                            Ext.getCmp('capturelist').refresh();
+
+                          //get the file for reading  
+                          // fileSystem.root.getFile("readNote.txt", null, gotReaderFileEntry, fail);
+
+                          // alert('before gotReaderFileEntry method');
+
+                          // function gotReaderFileEntry(fileEntry) {
+                          //       fileEntry.file(gotFile, fail);
+
+
+
+                          //   }
+
+                          //   alert('afet gotReaderFileEntry method');
+
+                          // var reader = new FileReader();
+
+                          // reader.onloadend = function(evt) {
+                          //          alert("Read as text");
+                          //           alert(evt.target.result);
+                          //           alert('after the result is displayed');
+                          //   };
+
+                          //    function gotFile(file){
+                          //       alert('in got file');
+                          //       (reader.readAsText(file));
+                          //       alert('after');
+
+                          //   };
+                    }
+
+                    function gotFileEntry(fileEntry) {
+                        // alert('url is');//+fileEntry.toUrl());
+                        fileEntry.createWriter(gotFileWriter, fail);
+                        
+
+                    }
+
+                    function gotFileWriter(writer) {
+                        
+                        //get the text from the text box
+                        var note=Ext.getCmp('note').getValue();
+                        alert(note);
+                        writer.write(note);
+
+                    }
+
+                    function fail(error) {
+                        console.log(error.code);
+                        alert('failed');
+                    }
+
+   
                 }
             }
         ]

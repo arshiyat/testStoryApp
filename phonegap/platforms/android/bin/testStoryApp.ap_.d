@@ -33,6 +33,7 @@
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/js/index.js \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.media \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.media-capture \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.camera/www \
@@ -60,6 +61,9 @@
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file/www/requestFileSystem.js \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file/www/resolveLocalFileSystemURI.js \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file/www/android/FileSystem.js \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransfer.js \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransferError.js \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.media/www \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.media/www/Media.js \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/plugins/org.apache.cordova.media/www/MediaError.js \
