@@ -147,7 +147,9 @@
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/Icon_Android48.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/Icon~ipad.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/Icon~ipad@2x.png \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/images.jpeg \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/iTunesArtwork.png \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/notes.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/startup/1496x2048.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/startup/1536x2008.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/startup/320x460.jpg \

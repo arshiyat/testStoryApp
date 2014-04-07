@@ -1,21 +1,43 @@
 // The following two lines import the default Sencha Touch theme. If you are building
 // a new theme, remove them and the add your own CSS on top of the base CSS (which
 // is already included in your app.json file).
+
+//$include-pictos-font: false;
+$include-default-icons: true;
+
 @import 'sencha-touch/default';
 @import 'sencha-touch/default/all';
 
-//@include icon-font('SenchaConIcons', inline-font-files(
-  //'senchacon-icons/senchacon-icons.woff', woff,
-  //'senchacon-icons/senchacon-icons.ttf', truetype,
-  //'headphones.svg', svg
-//));
 
 
-// Custom code goes here..
 
-// Examples of using the icon mixin:
-// @include icon('user');
-//@include icon('headphones');
-//@include icon("headphones"  , "\e600", "SenchaConIcons"); 
-//@include icon("camera"  , "\e601", "SenchaConIcons"); 
-//@include icon("camera2"  , "\e602", "SenchaConIcons"); 
+@include icon('anchor');
+@include icon('network');
+@include icon('video');
+@include icon('camera');
+@include icon('radio');
+
+//embed custom pictos font
+@include font-face('SenchaPictos', inline-font-files(
+ 'icomoon.woff', woff, 
+ 'icomoon.ttf', truetype,
+ 'icomoon.svg', svg
+ )
+);
+
+@include font-face('Pictos', inline-font-files(
+ 'pictos-web.woff', woff, 
+ 'pictos-web.ttf', truetype,
+ 'pictos-web.svg', svg
+ )
+);
+
+@include icon("icon-menu"  , "\e603", "SenchaPictos");
+@include icon("icon-camera"  , "\e601", "SenchaPictos");
+@include icon("icon-camera2"  , "\e602", "SenchaPictos");
+@include icon("icon-menu2"  , "\e600", "SenchaPictos");
+@include icon("icon-dribbble"  , "\e604", "SenchaPictos");
+@include icon("icon-world"  , "\e605", "SenchaPictos");
+@include icon("icon-microphone"  , "\e607", "SenchaPictos");
+@include icon("icon-vcard"  , "\e606", "SenchaPictos");
+@include icon("icon-cog"  , "\e608", "SenchaPictos");

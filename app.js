@@ -53,7 +53,6 @@ Ext.application({
         
         Ext.Viewport.add(Ext.create('testStoryApp.view.Main'));
 
-       
     },
 
    

@@ -3,15 +3,24 @@ Ext.define('testStoryApp.view.noteView', {
     alias: 'widget.notePopup',
  
     config: {
-        height: '50%',
+
+    //   width: 200,
+    // height: 200,
+    layout: 'fit',
+        height: '100%',
         // html: 'I am Panel Popup',
         itemId: 'notePopup',
-        left: '5%',
-        padding: 10,
-        top: '0%',
-        width: '50%',
-        hideOnMaskTap: true,
+        // left: '5%',
+        // padding: 10,
+        // top: '25%',
+        // left:'30%',
+        width: '100%',
+        // hideOnMaskTap: true,
         modal: true,
+         id: 'notePopup',
+         fullscreen:true,
+         layout:'hbox',
+         centered: true,
     
     items: [
             {
@@ -19,20 +28,36 @@ Ext.define('testStoryApp.view.noteView', {
                 id:'note',
                 label: 'Note',
                 maxRows: 2,
-                name: 'bio'
+                name: 'bio',
+                //height:100,
+               // flex:1
                 
             },
             
+            // {
+            //     xtype: 'textfield',
+            //     label: 'Note',
+            //     name: 'fileName'
+            // },
             {
-                xtype: 'textfield',
-                label: 'Note',
-                name: 'fileName'
-            },
-            {
+              xtype:'panel',
+              layout: 'hbox',
+              // layout: 'fit',
+              // centered:true,
+              defaults: {
+                margin: 10
+              },
+              docked:'bottom',
+
+              items:[
+               {
                 xtype: "button",
                 text: "Save Note",
-                flex:1,
+               flex:1,
+                // width:50,
                 handler: function() {
+
+                  alert('in save');
 
                     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
@@ -101,7 +126,26 @@ Ext.define('testStoryApp.view.noteView', {
 
    
                 }
+            },
+            {
+              xtype: "button",
+                text: "Cancel",
+               flex:'1',
+                // width:50
+                  handler: function() {
+
+                    alert('in cancel');
+                    Ext.getCmp('notePopup').hide();
+                  }
+
+
             }
+              
+
+              ]
+            },
+           
+            
         ]
     }
 });

@@ -24,11 +24,12 @@ Ext.define('testStoryApp.view.Main', {
 
                     items: [
                     {
-                        iconCls: 'team',
+                        iconCls: 'icon-vcard',
+                        
                         align: 'left'
                     },
                     {
-                        iconCls: 'more',
+                        iconCls: 'icon-cog',
                         align: 'right'
                     }
                     ]
@@ -37,7 +38,7 @@ Ext.define('testStoryApp.view.Main', {
             },
             {
                xtype: 'toolbar',
-               id:'widgets',
+               itemId:'widgets',
                layout: {
                             type: 'hbox',                           
                             align: 'strech',                            
@@ -47,49 +48,12 @@ Ext.define('testStoryApp.view.Main', {
             // docked: 'top',
                 items: [
                 
-                    { xtype:'button',flex:1,id:'camera',iconCls:'headphones',//text:'camera',
-                        listeners:{
-                            tap:function()
-                            {
-                                // alert(this.parent.getId());
-                                this.fireEvent('tapped',this);
-                                // alert('tapped');
-                            }
-                        }
-                    },
-                    { xtype:'button',flex:1,id:'video',text:'Video',
-                     listeners:{
-                            tap:function()
-                            {
-                                // alert(this.parent.getId());
-                                this.fireEvent('tapped',this);
-                                // alert('tapped');
-                            }
-                        }
-                    },
-                    { xtype:'button',flex:1,id:'note',iconCls: 'compose',//text:'audio',
-                     listeners:{
-                            tap:function()
-                            {
-                                // alert(this.parent.getId());
-                                this.fireEvent('tapped',this);
-                                // alert('tapped');
-                            }
-                        }
-                    },
-                    { xtype:'button',flex:1,id:'audio',text:'note',
-                     listeners:{
-                            tap:function()
-                            {   
-                                // alert(this.parent.getId());
-                                this.fireEvent('tapped',this);
-                                // alert('tapped');
-                            }
-                        }
-                    },
-
-                    { flex:1,iconCls: 'add' },
-                    { flex:1,iconCls: 'compose' },
+                    { xtype:'button',flex:1,itemId:'camera',iconCls:'icon-camera'},
+                    { xtype:'button',flex:1,itemId:'video',iconCls:'icon-camera2'},
+                    { xtype:'button',flex:1,itemId:'note',iconCls: 'compose'},
+                    { xtype:'button',flex:1,itemId:'audio',iconCls:'icon-microphone'},
+                    { flex:1,itemId:'changeView',iconCls: 'icon-dribbble'},
+                    { flex:1,itemId:'sort',iconCls: 'icon-menu' },
                    
                 ]
             },
@@ -97,12 +61,50 @@ Ext.define('testStoryApp.view.Main', {
             {
             
                 xtype:'list',
-                id:'capturelist',
+                itemId:'capturelist',
                 height: '100%',
-                scroll: 'vertical',
+                scrollable: 'vertical',
                 store:'myStoreID',
                 itemTpl:'<h1>{type} </h1> <img src="{url}"></img>',
                 itemCls:'capture-entry',
+                hidden: false,
+
+                listeners:{
+                      itemtap:function(list, index, target, record, e, eOpts){
+                            // if(!this.panel)
+                            // {
+                            //     this.panel=new Ext.create()
+                                 alert('open nav view');
+                            // }
+                            // this.
+                            }
+                }
+            },
+            
+            {
+                xtype: 'dataview',
+                height: '100%',
+                itemId:'gridView',
+                styleHtmlContent: true,
+                width: '100%',
+                layout: {
+                    type: 'fit'
+                },
+                inline: {
+                    wrap: true
+                },
+                itemCls: 'capture-entry1',
+                itemTpl: [
+                    '<img src="{url}"></img>'
+                  
+                ],
+                store: 'myStoreID',
+                hidden: true,
+                listeners:{
+                      itemtap:function(dataview, index, target, record, e, eOpts){
+                                 alert('open nav view');
+                            }
+                }
             }
         ]
     }

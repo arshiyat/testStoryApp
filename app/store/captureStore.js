@@ -5,7 +5,7 @@ Ext.define('testStoryApp.store.captureStore', {
     config:
     {
      model: 'testStoryApp.model.captureModel',
-        storeId: 'myStoreID',
+     storeId: 'myStoreID',
         // data:[
 	       //  {
 	       //  	title:'title1',
