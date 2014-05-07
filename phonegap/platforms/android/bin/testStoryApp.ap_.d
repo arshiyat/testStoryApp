@@ -140,6 +140,7 @@
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/startup \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/css/app.css \
+/Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/audio.jpeg \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/icon-spot~ipad.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/Icon.png \
 /Library/WebServer/Documents/Apps/testStoryApp/phonegap/platforms/android/assets/www/resources/icons/Icon@2x.png \

@@ -18,7 +18,7 @@ Ext.application({
     ],
 
     views: [
-        'Main','cameraView','videoView','captureList'
+        'Main','captureList','MainContainer','View'
     ],
 
     models:['captureModel'
@@ -52,6 +52,13 @@ Ext.application({
 
         
         Ext.Viewport.add(Ext.create('testStoryApp.view.Main'));
+
+       Ext.override(Ext.Media, {
+         setSrc: function(url){
+            alert('override');
+         this.media.dom.src = url;
+        }    
+        });
 
     },
 

@@ -748,11 +748,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "testStoryApp.store.captureStore": [],
   "testStoryApp.util.localStorage": [],
   "testStoryApp.view.Main": [],
-  "testStoryApp.view.audioView": [],
-  "testStoryApp.view.cameraView": [],
-  "testStoryApp.view.captureList": [],
-  "testStoryApp.view.noteView": [],
-  "testStoryApp.view.videoView": []
+  "testStoryApp.view.MainContainer": [],
+  "testStoryApp.view.View": [],
+  "testStoryApp.view.captureList": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1701,21 +1699,15 @@ Ext.ClassManager.addNameAliasMappings({
   "testStoryApp.store.captureStore": [],
   "testStoryApp.util.localStorage": [],
   "testStoryApp.view.Main": [
+    "widget.main"
+  ],
+  "testStoryApp.view.MainContainer": [
     "widget.mainview"
   ],
-  "testStoryApp.view.audioView": [
-    "widget.audiopanel"
-  ],
-  "testStoryApp.view.cameraView": [
-    "widget.Popup"
+  "testStoryApp.view.View": [
+    "widget.view"
   ],
   "testStoryApp.view.captureList": [
     "widget.captureList"
-  ],
-  "testStoryApp.view.noteView": [
-    "widget.notePopup"
-  ],
-  "testStoryApp.view.videoView": [
-    "widget.videopanel"
   ]
 });

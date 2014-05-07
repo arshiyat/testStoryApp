@@ -4,7 +4,7 @@ Ext.define('testStoryApp.view.MainContainer', {
   
     requires: [
         'Ext.TitleBar',
-        'Ext.Video',
+       
         ],
 
     config: {
@@ -20,16 +20,18 @@ Ext.define('testStoryApp.view.MainContainer', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Media Space',
+                    itemId:'mediaBar',
 
 
                     items: [
                     {
                         iconCls: 'icon-vcard',
-                        
+                        itemId:'settingButton',
                         align: 'left'
                     },
                     {
                         iconCls: 'icon-cog',
+                        itemId:'userProfileButton',
                         align: 'right'
                     }
                     ]
@@ -52,10 +54,19 @@ Ext.define('testStoryApp.view.MainContainer', {
                     { xtype:'button',flex:1,itemId:'video',iconCls:'icon-camera2'},
                     { xtype:'button',flex:1,itemId:'note',iconCls: 'compose'},
                     { xtype:'button',flex:1,itemId:'audio',iconCls:'icon-microphone'},
-                    { flex:1,itemId:'changeView',iconCls: 'icon-dribbble'},
-                    { flex:1,itemId:'sort',iconCls: 'icon-menu' },
+                    { xtype:'button',flex:1,itemId:'changeView',iconCls: 'icon-dribbble'},
+                    { xtype:'button',flex:1,itemId:'sort',iconCls: 'icon-menu' },
                    
                 ]
+            },
+            {
+                xtype:'panel',
+                html: '<center>Capture list Empty</center>',
+                // align:'center',
+                hidden:true,
+                itemId:'emptyPanel',
+                height:'100%',
+                  padding: 100
             },
             
             {
@@ -67,18 +78,9 @@ Ext.define('testStoryApp.view.MainContainer', {
                 store:'myStoreID',
                 itemTpl:'<h1>{type} </h1> <img src="{url}"></img>',
                 itemCls:'capture-entry',
-                hidden: false,
+                hidden: false
 
-                listeners:{
-                      itemtap:function(list, index, target, record, e, eOpts){
-                            // if(!this.panel)
-                            // {
-                            //     this.panel=new Ext.create()
-                                 alert('open nav view');
-                            // }
-                            // this.
-                            }
-                }
+               
             },
             
             {
@@ -99,13 +101,10 @@ Ext.define('testStoryApp.view.MainContainer', {
                   
                 ],
                 store: 'myStoreID',
-                hidden: true,
-                listeners:{
-                      itemtap:function(dataview, index, target, record, e, eOpts){
-                                 alert('open nav view');
-                            }
-                }
+                hidden: true
+                
             }
+            
         ]
     }
 });

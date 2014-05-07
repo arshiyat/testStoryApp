@@ -6,7 +6,8 @@ Ext.define('testStoryApp.model.captureModel', {
             { name: 'title', type: 'string' },
             { name: 'url', type: 'string' },
             { name: 'type', type: 'string' },
-            { name: 'dirty', type:'boolean'}
+            { name: 'srcUrl', type:'string'},
+            { name: 'metadata', type:'string'}
         ]
     }
 });

@@ -54,9 +54,28 @@
     </feature>
 
     <feature name="File">
-         <param name="android-package" value="org.apache.cordova.FileUtils" />
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
     </feature>
+
     <feature name="FileTransfer">
-        <param name="android-package" value="org.apache.cordova.FileTransfer" />
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
     </feature>
+
+    <feature name="Media">
+        <param name="ios-package" value="CDVSound" />
+    </feature>
+    
+    <feature name="Capture">
+        <param name="ios-package" value="CDVCapture" />
+    </feature>
+
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+    </feature>
+    
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
+    </feature>
+
+    
 </widget>
