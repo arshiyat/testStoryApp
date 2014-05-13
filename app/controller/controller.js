@@ -90,6 +90,7 @@ Ext.define('testStoryApp.controller.controller', {
 
     onCamera:function()
     {
+        var me=this;
  
         var captureSuccess = function(mediaFiles) {
              
@@ -97,17 +98,27 @@ Ext.define('testStoryApp.controller.controller', {
 
             alert('captured path'+path);
 
+
             if(path.length>0)
             {
                 //local store update
                 // window.localStorage.setItem(((window.localStorage.length+1).toString()),'I:'+path);
 
-                var store=Ext.getStore('myStoreID');
+                // var store=Ext.getStore('myStoreID');
 
                 emptyPanel.hide();
                 // path='..'+path;
-                store.add({ title: 'green', type: 'Image', url: path, srcUrl: path });
-                store.sync();
+                // store.add({ title: 'green', type: 'Image', url: path, srcUrl: path });
+                // store.sync();
+
+                try{
+                    //move the file and rename it and then save the value on the store.
+                me.moveAndRenameFile(path,'Image');
+                }
+                catch(Err)
+                {
+                    alert(Err.toString());
+                }
 
             }
 
@@ -122,7 +133,6 @@ Ext.define('testStoryApp.controller.controller', {
 
         // start image capture
         navigator.device.capture.captureImage(captureSuccess, captureError, {limit:1});
-
     },
 
 
@@ -384,14 +394,14 @@ Ext.define('testStoryApp.controller.controller', {
         this.getStore().load();
 
         
-        // this.getStore().removeAll();
+        this.getStore().removeAll();
 
-        // this.getStore().sync();
+        this.getStore().sync();
 
-        // this.getStore().load();
+        this.getStore().load();
 
 
-        // alert('count is '+this.getStore().getCount());
+        alert('count is '+this.getStore().getCount());
 
 
         this.getStore().load();
@@ -590,14 +600,14 @@ Ext.define('testStoryApp.controller.controller', {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
         function gotFS(fileSystem) {
-            // alert('fileSystem.root.getFile("readme.txt", null, gotFileEntry, fail)');
+            alert('fileSystem.root.getFile("readme.txt", null, gotFileEntry, fail)');
             fileSystem.root.getFile(path, null, gotFileEntry, fail);
         };
 
 
         function gotFileEntry(fileEntry) {
            
-           // alert('in file Entry'+fileEntry.name);
+           alert('in file Entry'+fileEntry.name);
             // window.resolveLocalFileSystemURI("file:/mnt/sdcard/Sounds/Voice%20015.3ga", onResolveSuccess, fail);
 
             //play the audio file
@@ -667,8 +677,92 @@ Ext.define('testStoryApp.controller.controller', {
 
     },
 
-    moveFile:function(url)
+    moveAndRenameFile: function(url,type)
     {
+        //create the directory if it does not exists on today's data.
+        var d = new Date();
+        var dirName='MediaStore-'+d.getFullYear()+d.getMonth()+d.getDate();
+        var de,path='file://'+url;
+
+        var fileNameIndex=url.lastIndexOf('/');
+        var fileName=url.substring(fileNameIndex);
+       
+        var fileType=fileName.substring(fileName.lastIndexOf('.'));
+        var newFileName;
+
+        var me=this;
+
+        if(type=='Image')
+        {
+            newFileName='Image-'+d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()+'-'+d.getHours()+'-'+d.getMinutes()+'-'+d.getSeconds()+fileType;
+        }
+        else if(type=='Video')
+        {
+
+        }
+        else if(type=='Note')
+        {
+
+        }
+        else (type=='Audio')
+        {
+
+        }
+
+          //get hold of the file system.
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        // window.resolveLocalFileSystemURI(path, onResolvseSuccess, fail);
+
+
+        function gotFS(fileSystem) {
+            alert('in FS with dirname '+dirName);
+            try{
+            fileSystem.root.getDirectory(dirName, {create: true, exclusive: false}, onGetDirectoryWin, fail);
+            }
+            catch(error)
+            {
+                alert('error is '+error.toString());
+            }
+        };
+
+        function onGetDirectoryWin(dirEntry)
+        {
+            de=dirEntry;
+            alert('in onGetDirectoryWin - '+de.name);
+
+             window.resolveLocalFileSystemURI(path, onResolveSuccess, fail);
+        }
+
+         function onResolveSuccess(fileEntry) {
+            console.log(fileEntry.name);
+            alert('in onResolveSuccess - '+fileEntry.toURL());
+            fileEntry.moveTo(de,newFileName,success,fail);
+                    
+        }
+
+        function success(entry) {
+            console.log("New Path: " + entry.fullPath);
+            alert('in success - '+entry.toURL());
+
+            // var filenam='/'+dirName+'/'+entry.name;
+
+            // alert('new file name to search '+filenam);
+             // fileSystem.root.getFile(filenam, null, onGotFile, fail);
+
+
+            me.getStore().add({ title: 'green', type: 'Image', url: entry.toURL(), srcUrl: (entry.fullPath)});
+            me.getStore().sync();
+
+        }
+
+        // function onGotFile(entry)
+        // {
+        //     alert(' got the file after moving with file path '+entry.toURL());
+        // }
+
+         function fail(error) {
+            alert('Failed with error code '+error.code);
+        };
 
     },
 
