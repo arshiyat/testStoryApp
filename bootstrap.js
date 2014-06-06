@@ -747,8 +747,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "testStoryApp.model.captureModel": [],
   "testStoryApp.store.captureStore": [],
   "testStoryApp.util.localStorage": [],
+  "testStoryApp.view.FilterView": [],
   "testStoryApp.view.Main": [],
   "testStoryApp.view.MainContainer": [],
+  "testStoryApp.view.SettingsView": [],
   "testStoryApp.view.View": [],
   "testStoryApp.view.captureList": []
 });
@@ -1698,11 +1700,17 @@ Ext.ClassManager.addNameAliasMappings({
   "testStoryApp.model.captureModel": [],
   "testStoryApp.store.captureStore": [],
   "testStoryApp.util.localStorage": [],
+  "testStoryApp.view.FilterView": [
+    "widget.filterview"
+  ],
   "testStoryApp.view.Main": [
     "widget.main"
   ],
   "testStoryApp.view.MainContainer": [
     "widget.mainview"
+  ],
+  "testStoryApp.view.SettingsView": [
+    "widget.setttingview"
   ],
   "testStoryApp.view.View": [
     "widget.view"

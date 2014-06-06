@@ -2,41 +2,35 @@ Ext.define('testStoryApp.view.MainContainer', {
     extend: 'Ext.Container',
     xtype: 'mainview',
   
-    requires: [
-        'Ext.TitleBar',
-       
-        ],
-
+   
     config: {
     scroll:'none',
 
         items: [
             {
+                xtype: 'toolbar',
+                title: 'Media Space',
+                docked: 'top',
+                itemId:'mediaBar',
 
-                styleHtmlContent: true,
-                scrollable: true,
-
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Media Space',
-                    itemId:'mediaBar',
-
-
-                    items: [
+                items: [
                     {
+                        xtype:'button',
                         iconCls: 'icon-vcard',
-                        itemId:'settingButton',
+                        itemId:'userProfileButton',
                         align: 'left'
                     },
                     {
+                        xtype:'spacer'
+                    },
+                    {
+                        xtype:'button',
                         iconCls: 'icon-cog',
-                        itemId:'userProfileButton',
+                        itemId:'settingButton',
                         align: 'right'
                     }
-                    ]
-                }
-
+                ]
+                // }
             },
             {
                xtype: 'toolbar',
@@ -47,7 +41,7 @@ Ext.define('testStoryApp.view.MainContainer', {
                         },
                         height: '100',
                         // width:'100',
-            // docked: 'top',
+            docked: 'top',
                 items: [
                 
                     { xtype:'button',flex:1,itemId:'camera',iconCls:'icon-camera'},
@@ -78,7 +72,8 @@ Ext.define('testStoryApp.view.MainContainer', {
                 store:'myStoreID',
                 itemTpl:'<h1>{type} </h1> <img src="{url}"></img>',
                 itemCls:'capture-entry',
-                hidden: false
+                hidden: false,
+                grouped: true
 
                
             },
@@ -101,7 +96,12 @@ Ext.define('testStoryApp.view.MainContainer', {
                   
                 ],
                 store: 'myStoreID',
-                hidden: true
+                hidden: true,
+                 listeners: {
+       itemtap: function(dataview, index, target, record, e, eOpts) {
+           alert('arshiya');
+       }
+    }
                 
             }
             

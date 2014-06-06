@@ -29,8 +29,9 @@ Ext.define('testStoryApp.view.View', {
 
             {
                 xtype:'button',
-                // iconCls: 'icon-cog',
-                text:'delete',
+                iconCls: 'trash',
+                iconMask:true,
+                // text:'delete',
                 itemId:'deleteButton',
                 align: 'right'
             }
@@ -43,7 +44,17 @@ Ext.define('testStoryApp.view.View', {
             flex:4,
             align:'center',
             height:'100%',
-            width:'100%'
+            width:'100%',
+            hidden:false
+        },
+        {
+            xtype: 'textareafield',
+            itemId:'note',
+            label: 'Note',
+            maxRows: 10,
+            flex:4,
+            hidden:true,
+       
         },
        
         {
@@ -52,7 +63,15 @@ Ext.define('testStoryApp.view.View', {
     		flex:2,
             itemId:'capturedetails'
     	},
-         {
+        {
+                xtype:'button',
+                text:'Save',
+                itemId:'save',
+                flex:1,
+                hidden:true
+
+        },
+        {
             xtype:'toolbar',
             itemId:'buttonPanel',
             layout:'hbox',

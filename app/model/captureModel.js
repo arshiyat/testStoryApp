@@ -7,7 +7,7 @@ Ext.define('testStoryApp.model.captureModel', {
             { name: 'url', type: 'string' },
             { name: 'type', type: 'string' },
             { name: 'srcUrl', type:'string'},
-            { name: 'metadata', type:'string'}
+            { name: 'dateStamp', type: 'date', dateFormat: 'm/d/Y'}
         ]
     }
 });

@@ -18,7 +18,7 @@ Ext.application({
     ],
 
     views: [
-        'Main','captureList','MainContainer','View'
+        'Main','captureList','MainContainer','View','SettingsView','FilterView'
     ],
 
     models:['captureModel'
@@ -52,6 +52,12 @@ Ext.application({
 
         
         Ext.Viewport.add(Ext.create('testStoryApp.view.Main'));
+
+        if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
+             // Ext.select(".x-titlebar").applyStyles("height: 55px; padding-top: 10px;");
+             Ext.select(".x-toolbar").applyStyles("height: 55px; padding-top: 10px;");
+
+        }
 
        Ext.override(Ext.Media, {
          setSrc: function(url){
